@@ -12,17 +12,42 @@ import ComposableArchitecture
 struct ReduxSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(
-                store: Store(
-                    initialState: Application.State(animal: Animal.State(main: Main.State(animalName: ""))),
-                    reducer: Application.reducer,
-                    environment: Application.Environment(animalService: AnimalService())
-                ), router: RouterTest.store
-            ).environmentObject(router)
+            WithViewStore(Application.router) { router in
+                router.viewMaker
+                    .onOpenURL {
+                        router.send(.routeTo(path: manage(url: $0)))
+                    }
+                    .onAppear {
+                        if let url = URL(string: "https://animal.generator.io/main/pop/popPush") {
+                            print(url.query)
+                            print(url.pathComponents)
+                            print(url.path)
+                            router.send(.routeTo(path: manage(url: url)))
+                        }
+                    }
+            }
+            
         }
+    }
+    
+    func manage(url: URL) -> [String] {
+        return url.pathComponents
     }
 }
 
-let router = Router<Destination, RoutingAction>(
-    initialState: Destination(main: .init(path: "main"), push: .init(path: "push"), pop: .init(path: "pop"), popPush: .init(path: "poppush")),
-    navigation: navigator(destination:action:))
+extension View {
+    func eraseToAnyView() -> AnyView {
+        AnyView(self)
+    }
+}
+
+let contentStore = Store(
+    initialState: Application.State(animal: Animal.State(main: Main.State(animalName: ""))),
+    reducer: Application.reducer,
+    environment: Application.Environment(animalService: AnimalService())
+)
+
+let animalStore = contentStore.scope(
+    state: \.animal,
+    action: Application.Action.animalRelate(action:)
+)

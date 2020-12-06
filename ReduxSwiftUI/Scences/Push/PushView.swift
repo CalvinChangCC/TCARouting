@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct PushView: View {
     var body: some View {
-        Text("Push View")
+        WithViewStore(Push.router) { router in
+            Button("Back to Root") {
+                router.send(.backToRoot)
+            }
+        }
+        .navigationTitle("Push View")
+        
     }
 }
 

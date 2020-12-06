@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F29BB452575BE4000BAD263 /* AnimalVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29BB442575BE4000BAD263 /* AnimalVIew.swift */; };
 		3F2C974B25487D0000E4AADD /* ReduxSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C974A25487D0000E4AADD /* ReduxSwiftUIApp.swift */; };
 		3F2C974D25487D0000E4AADD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C974C25487D0000E4AADD /* ContentView.swift */; };
 		3F2C974F25487D0500E4AADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C974E25487D0500E4AADD /* Assets.xcassets */; };
 		3F2C975225487D0500E4AADD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C975125487D0500E4AADD /* Preview Assets.xcassets */; };
 		3F2C975D25487D0500E4AADD /* ReduxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C975C25487D0500E4AADD /* ReduxSwiftUITests.swift */; };
 		3F2C976825487D0500E4AADD /* ReduxSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C976725487D0500E4AADD /* ReduxSwiftUIUITests.swift */; };
-		3F2C977C25487DAF00E4AADD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C977B25487DAF00E4AADD /* AppState.swift */; };
 		3F2C9793254886F000E4AADD /* AnimalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C9792254886F000E4AADD /* AnimalService.swift */; };
 		3F38B34E25688C8D00D3CACD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38B34D25688C8D00D3CACD /* MainView.swift */; };
 		3F38B35425688CA800D3CACD /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38B35325688CA800D3CACD /* PopView.swift */; };
@@ -21,6 +21,9 @@
 		3F38B36125688D9C00D3CACD /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38B36025688D9C00D3CACD /* Main.swift */; };
 		3F38B36C25688E6A00D3CACD /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38B36B25688E6A00D3CACD /* Application.swift */; };
 		3FA52B01256AE5A300EE1A41 /* PopPushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA52B00256AE5A300EE1A41 /* PopPushView.swift */; };
+		3FB8876125740905004246E8 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8876025740905004246E8 /* Push.swift */; };
+		3FB8876625740D89004246E8 /* Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8876525740D89004246E8 /* Pop.swift */; };
+		3FB8876B257410DB004246E8 /* PopPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8876A257410DB004246E8 /* PopPush.swift */; };
 		3FBC4CC6254CBE610065756D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3FBC4CC5254CBE610065756D /* ComposableArchitecture */; };
 		3FBC4CCC254F1A630065756D /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 3FBC4CCB254F1A630065756D /* Nimble */; };
 		3FBC4CD2254F1ACA0065756D /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3FBC4CD1254F1ACA0065756D /* Quick */; };
@@ -47,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F29BB442575BE4000BAD263 /* AnimalVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalVIew.swift; sourceTree = "<group>"; };
 		3F2C974725487D0000E4AADD /* ReduxSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2C974A25487D0000E4AADD /* ReduxSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxSwiftUIApp.swift; sourceTree = "<group>"; };
 		3F2C974C25487D0000E4AADD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,7 +63,6 @@
 		3F2C976325487D0500E4AADD /* ReduxSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReduxSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2C976725487D0500E4AADD /* ReduxSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxSwiftUIUITests.swift; sourceTree = "<group>"; };
 		3F2C976925487D0500E4AADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F2C977B25487DAF00E4AADD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		3F2C9792254886F000E4AADD /* AnimalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalService.swift; sourceTree = "<group>"; };
 		3F38B34D25688C8D00D3CACD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F38B35325688CA800D3CACD /* PopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
@@ -67,6 +70,9 @@
 		3F38B36025688D9C00D3CACD /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		3F38B36B25688E6A00D3CACD /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		3FA52B00256AE5A300EE1A41 /* PopPushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopPushView.swift; sourceTree = "<group>"; };
+		3FB8876025740905004246E8 /* Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push.swift; sourceTree = "<group>"; };
+		3FB8876525740D89004246E8 /* Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pop.swift; sourceTree = "<group>"; };
+		3FB8876A257410DB004246E8 /* PopPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopPush.swift; sourceTree = "<group>"; };
 		3FBC4CD6254F1B220065756D /* AnimalServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalServiceSpec.swift; sourceTree = "<group>"; };
 		3FC846112568914E0059F67E /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		3FC84616256AC0C10059F67E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -123,13 +129,13 @@
 		3F2C974925487D0000E4AADD /* ReduxSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				3F38B34C25688C7900D3CACD /* Views */,
 				3F2C974A25487D0000E4AADD /* ReduxSwiftUIApp.swift */,
+				3FC84616256AC0C10059F67E /* Router.swift */,
+				3F57506F256C70E50066DF80 /* Services */,
+				3F575069256C70790066DF80 /* Scences */,
 				3F2C974E25487D0500E4AADD /* Assets.xcassets */,
 				3F2C975325487D0500E4AADD /* Info.plist */,
 				3F2C975025487D0500E4AADD /* Preview Content */,
-				3F2C977B25487DAF00E4AADD /* AppState.swift */,
-				3F2C9792254886F000E4AADD /* AnimalService.swift */,
 			);
 			path = ReduxSwiftUI;
 			sourceTree = "<group>";
@@ -161,20 +167,71 @@
 			path = ReduxSwiftUIUITests;
 			sourceTree = "<group>";
 		};
-		3F38B34C25688C7900D3CACD /* Views */ = {
+		3F575069256C70790066DF80 /* Scences */ = {
 			isa = PBXGroup;
 			children = (
-				3F2C974C25487D0000E4AADD /* ContentView.swift */,
 				3F38B36B25688E6A00D3CACD /* Application.swift */,
-				3FC846112568914E0059F67E /* Animal.swift */,
-				3F38B34D25688C8D00D3CACD /* MainView.swift */,
-				3F38B36025688D9C00D3CACD /* Main.swift */,
-				3F38B35325688CA800D3CACD /* PopView.swift */,
-				3FA52B00256AE5A300EE1A41 /* PopPushView.swift */,
-				3F38B35B25688CB300D3CACD /* PushView.swift */,
-				3FC84616256AC0C10059F67E /* Router.swift */,
+				3F2C974C25487D0000E4AADD /* ContentView.swift */,
+				3F57506D256C70CB0066DF80 /* Pop */,
+				3F57506C256C70BD0066DF80 /* Push */,
+				3F57506A256C70930066DF80 /* Animal */,
+				3F57506B256C70AC0066DF80 /* Main */,
 			);
-			path = Views;
+			path = Scences;
+			sourceTree = "<group>";
+		};
+		3F57506A256C70930066DF80 /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				3FC846112568914E0059F67E /* Animal.swift */,
+				3F29BB442575BE4000BAD263 /* AnimalVIew.swift */,
+			);
+			path = Animal;
+			sourceTree = "<group>";
+		};
+		3F57506B256C70AC0066DF80 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3F38B36025688D9C00D3CACD /* Main.swift */,
+				3F38B34D25688C8D00D3CACD /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3F57506C256C70BD0066DF80 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8876025740905004246E8 /* Push.swift */,
+				3F38B35B25688CB300D3CACD /* PushView.swift */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		3F57506D256C70CB0066DF80 /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				3F57506E256C70D50066DF80 /* PopPush */,
+				3FB8876525740D89004246E8 /* Pop.swift */,
+				3F38B35325688CA800D3CACD /* PopView.swift */,
+			);
+			path = Pop;
+			sourceTree = "<group>";
+		};
+		3F57506E256C70D50066DF80 /* PopPush */ = {
+			isa = PBXGroup;
+			children = (
+				3FA52B00256AE5A300EE1A41 /* PopPushView.swift */,
+				3FB8876A257410DB004246E8 /* PopPush.swift */,
+			);
+			path = PopPush;
+			sourceTree = "<group>";
+		};
+		3F57506F256C70E50066DF80 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3F2C9792254886F000E4AADD /* AnimalService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,12 +376,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC846122568914E0059F67E /* Animal.swift in Sources */,
+				3FB8876B257410DB004246E8 /* PopPush.swift in Sources */,
+				3FB8876125740905004246E8 /* Push.swift in Sources */,
 				3FC84617256AC0C10059F67E /* Router.swift in Sources */,
+				3FB8876625740D89004246E8 /* Pop.swift in Sources */,
 				3F38B36C25688E6A00D3CACD /* Application.swift in Sources */,
-				3F2C977C25487DAF00E4AADD /* AppState.swift in Sources */,
 				3F38B34E25688C8D00D3CACD /* MainView.swift in Sources */,
 				3F38B36125688D9C00D3CACD /* Main.swift in Sources */,
 				3F38B35C25688CB300D3CACD /* PushView.swift in Sources */,
+				3F29BB452575BE4000BAD263 /* AnimalVIew.swift in Sources */,
 				3F2C974D25487D0000E4AADD /* ContentView.swift in Sources */,
 				3F2C9793254886F000E4AADD /* AnimalService.swift in Sources */,
 				3F38B35425688CA800D3CACD /* PopView.swift in Sources */,

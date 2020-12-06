@@ -21,6 +21,7 @@ enum Animal {
         case complete(String)
         case error(AnimalServiceError)
         case mainAction(Main.Action)
+        case setName
     }
 
     struct Environment {
@@ -51,6 +52,36 @@ enum Animal {
             state.inProgress = false
             state.error = error
             return .none
+        case .setName:
+            state.main.animalName = state.current
+            return .none
         }
-    }
+    }.debug()
+}
+
+extension Animal {
+//    struct Destination: Equatable {
+//        var main: Main.Destination
+//    }
+//
+//    enum RoutingAction {
+//        case navigateToMain(Store<Main.State, Main.Action>)
+//        case mainDidDisapear
+//    }
+//
+//    static func navigation(destination: inout Destination, action: RoutingAction) -> Void {
+//        switch action {
+//        case .navigateToMain(let store):
+//            print("go to main")
+//            destination.main.set(view: MainView(store: store))
+//        case .mainDidDisapear:
+//            print("main cancel")
+//            destination.main.set(view: nil)
+//        }
+//    }
+//
+//    static let router = Router<Destination, RoutingAction>(
+//        initialDestination: Destination(main: .init(path: "main")),
+//        navigation: navigation(destination:action:)
+//    )
 }
