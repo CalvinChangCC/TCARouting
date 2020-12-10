@@ -12,9 +12,12 @@ import SwiftUI
 enum Push {
     typealias RouterType = Store<RouterState, RoutingAction>
     class RouterState: BaseRouterState {
+        var viewBuilder: (RouterType) -> PushView = {
+            PushView(router: $0)
+        }
         
         init() {
-            super.init(path: "push", childs: [], viewMaker: PushView().eraseToAnyView())
+            super.init(path: "push", childs: [])
         }
     }
     
@@ -33,9 +36,4 @@ enum Push {
     }.debug()
     
     static let initialRouterState = RouterState()
-
-    static let router = Main.router.scope(
-        state: \.push,
-        action: Main.RoutingAction.pushStateChanged
-    )
 }

@@ -14,9 +14,13 @@ enum Pop {
     class RouterState: BaseRouterState {
         var popPush: PopPush.RouterState
         
+        var viewBuilder: (RouterType) -> PopView = {
+            PopView(router: $0)
+        }
+        
         init(popPush: PopPush.RouterState) {
             self.popPush = popPush
-            super.init(path: "pop", childs: [popPush], viewMaker: PopView().eraseToAnyView())
+            super.init(path: "pop", childs: [popPush])
         }
     }
     
@@ -45,9 +49,4 @@ enum Pop {
     }.debug()
     
     static let initialRouterState = RouterState(popPush: PopPush.initialRouterState)
-
-    static let router = Main.router.scope(
-        state: \.pop,
-        action: Main.RoutingAction.popStateChanged
-    )
 }

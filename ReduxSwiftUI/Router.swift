@@ -16,20 +16,18 @@ protocol Routable {
     var childs: [Routable] { get set }
 }
 
-class BaseRouterState: Routable, Equatable {
+class BaseRouterState: Equatable, Routable {
     static func == (lhs: BaseRouterState, rhs: BaseRouterState) -> Bool {
         false
     }
-    
+
     let path: String
     var isActive: Bool = false
-    let viewMaker: AnyView
     var childs: [Routable]
     
-    init(path: String, childs: [Routable], viewMaker: AnyView) {
+    init(path: String, childs: [Routable] = []) {
         self.path = path
         self.childs = childs
-        self.viewMaker = viewMaker
     }
 }
 

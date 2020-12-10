@@ -13,15 +13,12 @@ struct ReduxSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             WithViewStore(Application.router) { router in
-                router.viewMaker
+                router.viewBuilder(Application.router)
                     .onOpenURL {
                         router.send(.routeTo(path: manage(url: $0)))
                     }
                     .onAppear {
-                        if let url = URL(string: "https://animal.generator.io/main/pop/popPush") {
-                            print(url.query)
-                            print(url.pathComponents)
-                            print(url.path)
+                        if let url = URL(string: "https://animal.generator.io/main/push") {
                             router.send(.routeTo(path: manage(url: url)))
                         }
                     }
@@ -32,12 +29,6 @@ struct ReduxSwiftUIApp: App {
     
     func manage(url: URL) -> [String] {
         return url.pathComponents
-    }
-}
-
-extension View {
-    func eraseToAnyView() -> AnyView {
-        AnyView(self)
     }
 }
 

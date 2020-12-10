@@ -41,9 +41,13 @@ extension Application {
     class RouterState: BaseRouterState {
         var main: Main.RouterState
         
+        var viewBuilder: (RouterType) -> ContentView = {
+            ContentView(router: $0, store: contentStore)
+        }
+        
         init(main: Main.RouterState) {
             self.main = main
-            super.init(path: "//", childs: [main], viewMaker:  ContentView(store: contentStore).eraseToAnyView())
+            super.init(path: "//", childs: [main])
         }
     }
     
@@ -88,7 +92,7 @@ extension Application {
         }
     }
     
-    static let initialRouterState = RouterState(main: Main.initialRouterState)
+    static let initialRouterState = RouterState(main: Main.RouterState(push: .init(), pop: .init(popPush: .init())))
 
     static let router = Store(
         initialState: initialRouterState,

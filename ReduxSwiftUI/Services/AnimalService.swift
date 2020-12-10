@@ -13,20 +13,24 @@ enum AnimalServiceError: Error, CaseIterable, Equatable {
     case networkError
 }
 
-class AnimalService {
-    
-    func generateAnimal() -> AnyPublisher<String, AnimalServiceError> {
+protocol AnimalServiceType {
+    func generateAnimal() -> Future<String, AnimalServiceError>
+}
+
+class AnimalService: AnimalServiceType {
+    func generateAnimal() -> Future<String, AnimalServiceError> {
         let animals = ["Cat", "Dog", "Crow", "Horse", "Iguana", "Cow", "Racoon"]
-        let delay = Double.random(in: 0..<5)
+        let delay = Double.random(in: 0..<3)
         
         return Future<String, AnimalServiceError> { result in
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 let randomErrorCode = Int.random(in: 0..<2)
-                if(randomErrorCode != 0) {
-                    result(.success( animals.randomElement() ?? ""))
+                if randomErrorCode != 2 {
+                    result(.success(animals.randomElement() ?? ""))
                 } else if let randomError = AnimalServiceError.allCases.randomElement() {
                     result(.failure(randomError))
-                }            }
-        }.eraseToAnyPublisher()
+                }
+            }
+        }
     }
 }

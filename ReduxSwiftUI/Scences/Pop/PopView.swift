@@ -9,12 +9,21 @@ import SwiftUI
 import ComposableArchitecture
 
 struct PopView: View {
+    let router: Pop.RouterType
+
+    var pushRouter: PopPush.RouterType {
+        router.scope(
+            state: \.popPush,
+            action: Pop.RoutingAction.popPushStateChanged
+        )
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
-                WithViewStore(PopPush.router) { router in
+                WithViewStore(pushRouter) { router in
                     NavigationLink(
-                        destination: router.viewMaker,
+                        destination: router.viewBuilder(pushRouter),
                         isActive: router.binding(
                             get: \.isActive,
                             send: PopPush.RoutingAction.activeStateChanged
@@ -24,7 +33,7 @@ struct PopView: View {
                         }
                     )
                 }
-                WithViewStore(Pop.router) { router in
+                WithViewStore(router) { router in
                     Button("Back to Root") {
                         router.send(.backToRoot)
                     }
@@ -32,11 +41,5 @@ struct PopView: View {
             }
             .navigationTitle("Pop View")
         }
-    }
-}
-
-struct PopView_Previews: PreviewProvider {
-    static var previews: some View {
-        PopView()
     }
 }

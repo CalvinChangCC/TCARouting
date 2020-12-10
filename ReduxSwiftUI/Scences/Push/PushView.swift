@@ -9,19 +9,14 @@ import SwiftUI
 import ComposableArchitecture
 
 struct PushView: View {
+    let router: Push.RouterType
+
     var body: some View {
-        WithViewStore(Push.router) { router in
+        WithViewStore(router) { router in
             Button("Back to Root") {
                 router.send(.backToRoot)
             }
         }
         .navigationTitle("Push View")
-        
-    }
-}
-
-struct PushView_Previews: PreviewProvider {
-    static var previews: some View {
-        PushView()
     }
 }

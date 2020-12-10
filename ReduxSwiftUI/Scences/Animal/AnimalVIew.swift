@@ -9,9 +9,18 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AnimalView: View {
+    let router: Application.RouterType
     let store: Store<Animal.State, Animal.Action>
-
+    
+    var mainRouter: Main.RouterType {
+        router.scope(
+            state: \.main,
+            action: Application.RoutingAction.mainStateChanged
+        )
+    }
+    
     var body: some View {
+        let mainViewStore = ViewStore(mainRouter)
         WithViewStore(store) { viewStore in
             VStack {
                 if viewStore.inProgress  {
@@ -28,10 +37,10 @@ struct AnimalView: View {
                         .font(.system(.largeTitle))
                         .padding()
                     Button("Tap me") { viewStore.send(.fetch) }
-                    WithViewStore(Main.router) { router in
+                    WithViewStore(mainRouter) { router in
                         NavigationLink(
-                            destination: router.viewMaker,
-                            isActive: router.binding(get: \.isActive, send: {
+                            destination: mainViewStore.viewBuilder(mainRouter),
+                            isActive: mainViewStore.binding(get: \.isActive, send: {
                                 if $0 { viewStore.send(.setName) }
                                 return Main.RoutingAction.activeStateChanged($0)
                             }),

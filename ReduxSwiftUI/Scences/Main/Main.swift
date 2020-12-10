@@ -22,19 +22,27 @@ enum Main {
     
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
         .none
-    }.debug()
+    }
 }
 
 extension Main {
     typealias RouterType = Store<RouterState, RoutingAction>
     class RouterState: BaseRouterState {
-        var push: Push.RouterState
+        var push: Push.RouterState?
         var pop: Pop.RouterState
         
-        init(push: Push.RouterState, pop: Pop.RouterState) {
+        var viewBuilder: (RouterType) -> MainView = {
+            MainView(router: $0, store: mainStore)
+        }
+        
+        init(push: Push.RouterState? = nil, pop: Pop.RouterState) {
             self.push = push
             self.pop = pop
-            super.init(path: "main", childs: [push, pop], viewMaker: MainView(store: mainStore).eraseToAnyView())
+            var childs: [Routable] = [pop]
+            if let push = push {
+                childs.append(push)
+            }
+            super.init(path: "main", childs: childs)
         }
     }
     
@@ -45,7 +53,7 @@ extension Main {
     }
 
     static let routingLogic = Reducer<RouterState, RoutingAction, Dependency>.combine(
-        Push.routingLogic.pullback(state: \.push, action: /RoutingAction.pushStateChanged, environment: { $0 }),
+        Push.routingLogic.optional().pullback(state: \.push, action: /RoutingAction.pushStateChanged, environment: { $0 }),
         Pop.routingLogic.pullback(state: \.pop, action: /RoutingAction.popStateChanged, environment: { $0 }),
         privateRoutingLogic
     )
@@ -54,6 +62,11 @@ extension Main {
         switch action {
         case .activeStateChanged(let state):
             coordinator.isActive = state
+            if state {
+                let push = Push.RouterState()
+                coordinator.push = push
+                coordinator.childs.append(push)
+            }
             return .none
         case .pushStateChanged(.backToRoot),
              .popStateChanged(.backToRoot),
@@ -62,14 +75,7 @@ extension Main {
             return .none
         default: return .none
         }
-    }.debug()
-    
-    static let initialRouterState = RouterState(push: Push.initialRouterState, pop: Pop.initialRouterState)
-
-    static let router = Application.router.scope(
-        state: \.main,
-        action: Application.RoutingAction.mainStateChanged
-    )
+    }
 
     static let mainStore = animalStore.scope(state: \.main, action: Animal.Action.mainAction)
 }

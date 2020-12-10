@@ -12,9 +12,12 @@ import SwiftUI
 enum PopPush {
     typealias RouterType = Store<RouterState, RoutingAction>
     class RouterState: BaseRouterState {
-        
+        var viewBuilder: (RouterType) -> PopPushView = {
+            PopPushView(router: $0)
+        }
+
         init() {
-            super.init(path: "popPush", childs: [], viewMaker: PopPushView().eraseToAnyView())
+            super.init(path: "popPush")
         }
     }
     
@@ -35,9 +38,4 @@ enum PopPush {
     }.debug()
     
     static let initialRouterState = RouterState()
-
-    static let router = Pop.router.scope(
-        state: \.popPush,
-        action: Pop.RoutingAction.popPushStateChanged
-    )
 }
