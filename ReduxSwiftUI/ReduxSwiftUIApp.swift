@@ -35,8 +35,15 @@ struct ReduxSwiftUIApp: App {
 let contentStore = Store(
     initialState: Application.State(animal: Animal.State(main: Main.State(animalName: ""))),
     reducer: Application.reducer,
-    environment: Application.Environment(animalService: AnimalService())
+    environment: Application.Environment(
+        animalService: AnimalService(
+            animals: animals,
+            randomValueGenerator: RandomValueGenerator()
+        )
+    )
 )
+
+let animals = ["Cat", "Dog", "Crow", "Horse", "Iguana", "Cow", "Racoon"]
 
 let animalStore = contentStore.scope(
     state: \.animal,

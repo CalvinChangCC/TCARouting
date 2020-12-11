@@ -25,7 +25,7 @@ enum Animal {
     }
 
     struct Environment {
-        let animalService: AnimalService
+        let animalService: AnimalServiceType
     }
 
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
